@@ -1269,7 +1269,9 @@ Written by John Wiegley (https://github.com/jwiegley/dot-emacs).")
     (quote ,(symbol-function 'nnreddit--display-article)))
    (gnus-header-button-alist
     (quote ,(nnreddit--header-button-alist)))
-   (gnus-visible-headers ,(concat gnus-visible-headers "\\|^Score:"))))
+   (gnus-visible-headers ,(cl-pushnew "^Score:" gnus-visible-headers))
+   ;; (gnus-visible-headers ,(concat gnus-visible-headers "\\|^Score:"))
+   ))
 
 (nnoo-define-skeleton nnreddit)
 
